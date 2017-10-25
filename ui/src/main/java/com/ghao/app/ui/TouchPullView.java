@@ -19,7 +19,7 @@ import android.view.animation.Interpolator;
  */
 
 public class TouchPullView extends View {
-    private static final boolean IS_DEBUG = true;
+    private static final boolean IS_DEBUG = false;
     private static final Interpolator DECELERATE_INTERPOLATOR = new DecelerateInterpolator();
 
     private Paint mCirclePaint;
@@ -30,10 +30,9 @@ public class TouchPullView extends View {
     private float mProgress;
     private Path mPath = new Path();
     private Paint mPathPaint;
-    private int mPathWidth = 4;
     private int mFinalWidth = 200;
-    private int mTargetGravityHeight = 100;
-    private int mTargetAngle = 120;
+    private int mFinalControlPointHeight = 100;
+    private int mMaxAngle = 120;
 
     private Paint mPointPaint;
     private int mLeftControlX, mRightControlX, mControlY, mLeftStartX, mRightStartX, mStartY;
@@ -73,7 +72,6 @@ public class TouchPullView extends View {
         pathPaint.setAntiAlias(true);
         pathPaint.setDither(true);
         pathPaint.setStyle(Paint.Style.FILL);
-        pathPaint.setStrokeWidth(mPathWidth);
         pathPaint.setColor(Color.GRAY);
         mPathPaint = pathPaint;
 
@@ -114,7 +112,7 @@ public class TouchPullView extends View {
         final int height = MeasureSpec.getSize(heightMeasureSpec);
 
         int iHeight = (int) (2 * mCircleRadius + getPaddingTop() + getPaddingBottom()
-                        + Math.round(mProgress * mMaxDragHeight));
+                + Math.round(mProgress * mMaxDragHeight));
         int measuredHeight;
         if (heightMode == MeasureSpec.EXACTLY) {
             measuredHeight = height;
@@ -172,7 +170,7 @@ public class TouchPullView extends View {
         path.reset();
 
         // find end point's coordinates
-        double theta = Math.toRadians(mTargetAngle * progress);
+        double theta = Math.toRadians(mMaxAngle * progress);
         float dx = cRadius * (float) Math.sin(theta);
         float dy = cRadius * (float) Math.cos(theta);
         final float leftContactX = cPointx - dx;
@@ -180,7 +178,7 @@ public class TouchPullView extends View {
         final float contactY = cPointy + dy;
 
         // find control point's coordinates
-        final float controlY = mTargetGravityHeight * progress;
+        final float controlY = mFinalControlPointHeight * progress;
         final float deltaY = contactY - controlY;
         final float deltaX = deltaY / (float) Math.tan(theta);
         final float leftControlX = leftContactX - deltaX;
