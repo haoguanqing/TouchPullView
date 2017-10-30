@@ -1,3 +1,3 @@
-# Bezier_curve
+# TouchPullView and Bezier curve
 
-![Imgur](https://i.imgur.com/qKIx6Ms.gif)
+![Imgur](https://thumbs.gfycat.com/FavorableSpitefulGroundhog-size_restricted.gif)
