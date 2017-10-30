@@ -2,7 +2,6 @@ package com.ghao.app.test
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.ghao.app.ui.TouchPullViewController
 
 class MainActivity : AppCompatActivity() {
 
@@ -10,6 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        TouchPullViewController(findViewById(R.id.main_activity_container)).init()
+        TouchPullViewController(findViewById(R.id.container)).init()
     }
 }

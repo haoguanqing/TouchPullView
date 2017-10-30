@@ -1,8 +1,10 @@
-package com.ghao.app.ui;
+package com.ghao.app.test;
 
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.ghao.app.ui.TouchPullView;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -20,7 +22,7 @@ public class TouchPullViewController implements View.OnTouchListener {
 
 
     public TouchPullViewController(@NotNull ViewGroup parent) {
-        mParent = parent.findViewById(R.id.touch_pull_container);
+        mParent = parent;
         mTouchPullView = parent.findViewById(R.id.touch_pull_view);
     }
 
@@ -45,8 +47,8 @@ public class TouchPullViewController implements View.OnTouchListener {
                 return true;
             case MotionEvent.ACTION_UP:
                 if (mIsPulling) {
-                    mTouchPullView.release();
                     mIsPulling = false;
+                    mTouchPullView.release();
                     return true;
                 }
                 return false;

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="TouchPullView">
+        <attr name="primaryColor" format="color"/>
+        <attr name="radius" format="dimension"/>
+        <attr name="maxDragHeight" format="dimension"/>
+        <attr name="maxAngle" format="integer"/>
+        <attr name="finalWidth" format="dimension"/>
+        <attr name="finalGravityHeight" format="dimension"/>
+        <attr name="contentDrawable" format="reference"/>
+        <attr name="contentDrawableMargin" format="dimension"/>
+    </declare-styleable>
+</resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/main_activity_container"
+    android:id="@+id/container"
     tools:context="com.ghao.app.test.MainActivity">
 
     <include layout="@layout/touch_pull_view"/>
